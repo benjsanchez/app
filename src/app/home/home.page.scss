@@ -1,0 +1,65 @@
+/* Añadr estilos */
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px; /* Ajusta el tamaño según tu diseño */
+  color: rgb(130, 104, 160); /* Color del ícono por defecto */
+  transition: color 0.3s ease-in-out;
+
+  &.active {
+    color: rgb(77, 88, 151); 
+  }
+}
+
+.calendar-container {
+  display: none;
+  /* Agrega estilos adicionales para el contenedor del calendario */
+}
+
+
+.vibrating {
+  animation: vibrateAnimation 10s ease-in-out;
+}
+
+@keyframes vibrateAnimation {
+  0% {
+    transform: translateX(5000000);
+  }
+  25% {
+    transform: translateX(-5000px);
+  }
+  50% {
+    transform: translateX(5000);
+  }
+  75% {
+    transform: translateX(5000000px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.title-animation {
+  animation: slideAndFade 5s infinite, fadeOpacity 1s infinite alternate;
+}
+
+@keyframes slideAndFade {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes fadeOpacity {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2; // Sin espacios ni caracteres extras
+  }
+}

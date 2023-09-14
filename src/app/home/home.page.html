@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="start-position">
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      Información del Usuario
+    </ion-card-header>
+    <ion-card-content>
+
+        <ion-card> 
+          <ion-item [ngClass]= "{'vibrating' : inputVibrationState === 'vibrating' }">
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input [(ngModel)]="usuario.nombre"></ion-input>
+          </ion-item>
+          <ion-item [ngClass]= "{'vibrating' : inputVibrationState === 'vibrating' }">
+            <ion-label position="floating">Apellido</ion-label>
+            <ion-input [(ngModel)]="usuario.apellido"></ion-input>
+          </ion-item>
+        </ion-card>
+      
+      <ion-item>
+        <ion-label>Nivel de Educación</ion-label>
+        <ion-list>
+          <ion-item>
+            <ion-select label placeholder="Nivel educacional" [(ngModel)]="usuario.nivelEducacional">
+              <ion-select-option value="Enseñanza básica">Enseñanza básica</ion-select-option>
+              <ion-select-option value="Enseñanza Media">Enseñanza Media</ion-select-option>
+              <ion-select-option value="Estudio superior">Estudio Superior</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+      <ion-item>
+      <mat-form-field class="mat-end">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date">
+          <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </ion-item>
+      <br>
+      <br>
+      <br>
+      <ion-button (click)="mostrarInformacion()">Mostrar</ion-button>
+      <ion-button (click)="limpiarCampos()"[class.vibrating]="inputVibrationState === 'vibrating'">Limpiar</ion-button>
+      <ion-button slot="end" [routerLink]="['/login']">volver</ion-button>
+    </ion-card-content>
+
+    <mat-slider min="1" max="5" step="0.5" value="1.5" color="secondary">
+      <input matSliderThumb>
+    </mat-slider> 
+
+  </ion-card>
+</ion-content>
